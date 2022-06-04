@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
     }
 },
 {
-    collection:'practice06'
+    collection:'practice05'
 })
 
 const User = mongoose.model('User',userSchema)

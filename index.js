@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
 const config = require('config')
+const userPage = require('./routes/user.route')
 
 require('./db')
 
@@ -12,8 +13,13 @@ app.use(cors())
 app.use(express.json())
 app.use(express.static('public'))
 app.use(express.urlencoded({extended:true}))
+app.use('/user',userPage)
 
-app.get('.',(req,res)=>{
+app.set('view engine','pug')
+app.set('views','./views')
+
+
+app.get('/',(req,res)=>{
     res.send('OOK')
 })
 
